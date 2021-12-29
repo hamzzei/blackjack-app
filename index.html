@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Pushster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <main id="main" class="main">
+        <h1 class="heading" id="title">Blackjack App</h1>
+        <div id="home-page" class="home-page spacer visible">
+            <input type="text" id="name-input" placeholder="Enter your name">
+            <button type="submit" onclick="beginNewGame()">new game</button>
+        </div>
+        <div id="in-game" class="in-game spacer invisible">
+            <p id="status">Press <span>Start Game</span> to Begin</p>
+            <p id="cards">Cards Drawn: </p>
+            <p id="total">Total: </p>
+            <button id="start-game" onclick="startGame()">start game</button>
+            <button id="new-card" onclick="newCard()">new card</button>
+            <p id="player-info"></p>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
