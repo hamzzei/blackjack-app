@@ -8,6 +8,7 @@ let score = 0;
 let isAlive = false;
 let blackjack = false;
 let allCards = [];
+let displayCards = [];
 let totalScore = 100;
 let player = {
     points: totalScore
@@ -22,7 +23,7 @@ function beginNewGame() {
     } else {
         return;
     }
-    
+
     player.name = playerName; 
     
     totalScore = 100;
@@ -30,6 +31,7 @@ function beginNewGame() {
     isAlive = false;
     blackjack = false;
     allCards = [];
+    displayCards = [];
 
     visible();
     updateScore();
@@ -46,10 +48,19 @@ function visible() {
 function randomCard() {
     let num = Math.floor(Math.random() * 13) + 1;
     if (num === 1) {
+        displayCards.push("A");
         return 11;
-    } else if (num > 10) {
+    } else if (num === 11) {
+        displayCards.push("J");
+        return 10;
+    } else if (num === 12) {
+        displayCards.push("Q");
+        return 10;
+    } else if (num === 13) {
+        displayCards.push("K");
         return 10;
     } else {
+        displayCards.push(num);
         return num;
     }
 }
@@ -61,6 +72,7 @@ function startGame() {
     score = 0;
     blackjack = false;
     allCards = [];
+    displayCards = [];
     }
 
     isAlive = true;
@@ -78,7 +90,7 @@ function renderGame() {
     score = 0;
     
     for (let i = 0; i < allCards.length; i++){
-        cards.textContent += allCards[i] + " ";
+        cards.textContent += displayCards[i] + " ";
         score += allCards[i];
     }
 
